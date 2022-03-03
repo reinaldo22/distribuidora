@@ -37,8 +37,8 @@ class AdminService {
             name,
             email,
             password: passwordHashed,
+            validated: false,
             code: generatedCode,
-            validated: false
         });
 
         await utilitario.sendEmail(email, generatedCode);

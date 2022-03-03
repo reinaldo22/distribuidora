@@ -3,14 +3,14 @@ interface IAuthMail {
     pass: "",
 }
 interface IMail {
-    host: "smtp.gmail.com",
-    port: 465,
+    host: "",
+    port: "",
     auth: IAuthMail
 }
 
 const mail: IMail = {
-    host: "smtp.gmail.com",
-    port: 465,
+    host: "",
+    port: "",
     auth: {
         user: "",
         pass: ""
