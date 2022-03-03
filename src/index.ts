@@ -9,6 +9,7 @@ import uploadConfig from './config/upload';
 import './database/connect';
 import productRouter from '../src/routes/productRouter';
 import categoryRouter from '../src/routes/categoryRouter';
+import adminRouter from '../src/routes/adminRouter';
 
 const app = express();
 app.use(express.urlencoded({ extended: true }));
@@ -19,6 +20,7 @@ app.use(express.json());
 app.use('/files', express.static(uploadConfig.directory))
 app.use(productRouter);
 app.use(categoryRouter);
+app.use(adminRouter);
 
 app.use(
     (error: Error, request: Request, response: Response, next: NextFunction) => {

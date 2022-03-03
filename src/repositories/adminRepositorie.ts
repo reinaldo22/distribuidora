@@ -1,4 +1,4 @@
-import { Admin } from "src/model/admin";
+import Admin from "src/model/admin";
 import { EntityRepository, Repository } from "typeorm"
 
 @EntityRepository(Admin)
