@@ -1,24 +1,24 @@
-import AppError from "@shared/error/AppError";
-import { getCustomRepository } from "typeorm";
+import AppError from '@shared/error/AppError';
 import bcrypt from 'bcryptjs';
-import Util from "src/util/Util";
-import { CustomerRepositorie } from "src/repositories/customerReposiorie";
+import { CustomerRepositorie } from 'src/repositories/customerReposiorie';
+import Util from 'src/util/Util';
+import { getCustomRepository } from 'typeorm';
 import { cpf as cpfValidator } from 'cpf-cnpj-validator';
-
 
 interface IACustomer {
     id?: string;
     email: string;
-    password: string;
+    password?: string;
     name: string;
     endereco: string;
-    forma_pagamento: string;
-    cpf: string;
+    forma_pagamento?: string;
+    cpf?: string;
     code?: string;
 }
 
-class CustomerService {
-    public async createAdminService({ name, email, password, code, forma_pagamento, endereco, cpf }: IACustomer) {
+class CreateCustomerService {
+
+    public async createCustomerService({ name, email, password, code, forma_pagamento, endereco, cpf }: IACustomer) {
 
         const utilitario = new Util();
         let generatedCode = await utilitario.sendCode()
@@ -36,18 +36,18 @@ class CustomerService {
             throw new AppError("This email already exists", 404);
         }
         // valida cpf
-        const cpfExists = await customerRepositorie.findByCpf(cpf);
+        const cpfExists = await customerRepositorie.findByCpf(cpf as string);
         if (cpfExists) {
             throw new AppError("Cpf already in use", 404);
         }
 
-        const validCpf = cpfValidator.isValid(cpf)
+        const validCpf = cpfValidator.isValid(cpf as string)
         if (validCpf === false) {
             throw new AppError("Cpf not valid", 404);
         }
 
         const salt = await bcrypt.genSalt(1);
-        const passwordHashed = await bcrypt.hash(password, salt);
+        const passwordHashed = await bcrypt.hash(password as string, salt);
 
         const customer = customerRepositorie.create({
             name,
@@ -64,6 +64,6 @@ class CustomerService {
 
         await customerRepositorie.save(customer);
     }
-
 }
-export default CustomerService;
+
+export default CreateCustomerService;
