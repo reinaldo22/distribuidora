@@ -1,9 +1,10 @@
 import { Router } from 'express'
-import AdminController from '../controller/adminController/adminController';
-
-
+import CreateAdminController from '../controller/adminController/createAdminController';
+import registerAdminController from 'src/controller/adminController/registerAdminController';
+import updateAdminController from 'src/controller/adminController/updateAdminController';
 const routes = Router();
 
-routes.post('/admin', AdminController.createAdminController);
-routes.post('/validated', AdminController.validationCode);
+routes.post('/admin', CreateAdminController.createAdminController);
+routes.post('/validated', registerAdminController.validationCode);
+routes.put('/admin/:id', updateAdminController.updateAdminController);
 export default routes;

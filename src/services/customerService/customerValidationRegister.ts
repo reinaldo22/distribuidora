@@ -7,7 +7,7 @@ interface ICustomer {
     code: string;
 }
 
-class ValidationRegisterService {
+class CustomerValidationRegister {
 
     public async validationRegister({ email, code }: ICustomer) {
         const customerRepositorie = getCustomRepository(CustomerRepositorie);
@@ -26,4 +26,4 @@ class ValidationRegisterService {
     }
 
 }
-export default ValidationRegisterService;
+export default CustomerValidationRegister;

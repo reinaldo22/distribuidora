@@ -1,8 +1,8 @@
 import AppError from "@shared/error/AppError";
 import { AdminRepositorie } from "src/repositories/adminRepositorie";
+import Util from "src/util/Util";
 import { getCustomRepository } from "typeorm";
 import bcrypt from 'bcryptjs';
-import Util from "src/util/Util";
 
 interface IAdmin {
     id?: string;
@@ -12,7 +12,8 @@ interface IAdmin {
     code?: string;
 }
 
-class AdminService {
+class CreateAdminService {
+    
     public async createAdminService({ name, email, password, code }: IAdmin) {
 
         const utilitario = new Util();
@@ -45,6 +46,5 @@ class AdminService {
 
         await adminRepositorie.save(admin);
     }
-
 }
-export default AdminService;
+export default CreateAdminService;
