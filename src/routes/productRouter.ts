@@ -1,12 +1,11 @@
 import { Router } from 'express';
 import multer from 'multer';
-import ProductController from '../controller/product-controller/productController';
 import uploadConfig from '../config/upload';
-import CreateProductController from 'src/controller/product-controller/createProductController';
-import ListProductController from 'src/controller/product-controller/listProductController';
-import UpdateproductController from 'src/controller/product-controller/updateproductController';
-import UpdateImageProductController from 'src/controller/product-controller/updateImageProductController';
-import DeleteProductController from 'src/controller/product-controller/deleteProductController';
+import CreateProductController from 'src/controller/productController/createProductController';
+import ListProductController from 'src/controller/productController/listProductController';
+import UpdateproductController from 'src/controller/productController/updateProductController';
+import UpdateImageProductController from 'src/controller/productController/updateImageProductController';
+import DeleteProductController from 'src/controller/productController/deleteProductController';
 
 const routes = Router()
 const upload = multer(uploadConfig);

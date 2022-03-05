@@ -1,8 +1,6 @@
 import AppError from "@shared/error/AppError";
-import { Category } from "src/model/categories";
-import { Product } from "src/model/product";
 import { CategoryRepositorie } from "src/repositories/categoryRepositorie";
-import { getConnection, getCustomRepository, getRepository } from "typeorm";
+import { getCustomRepository } from "typeorm";
 
 
 interface ICategory {
