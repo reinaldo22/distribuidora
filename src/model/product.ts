@@ -1,5 +1,6 @@
-import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { Category } from '../model/categories';
+import OrdersProducts from "./orders_products";
 
 @Entity('products')
 class Product {
@@ -9,6 +10,9 @@ class Product {
 
     @Column()
     name: string;
+
+    @OneToMany(() => OrdersProducts, orders_products => orders_products.product)
+    order_products: OrdersProducts[];
 
     @Column("decimal", { precision: 5, scale: 2 })
     price: number;
