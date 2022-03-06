@@ -21,7 +21,7 @@ class CreateCustomerService {
     public async createCustomerService({ name, email, password, code, forma_pagamento, endereco, cpf }: IACustomer) {
 
         const utilitario = new Util();
-        let generatedCode = await utilitario.sendCode()
+        let generatedCode = await utilitario.generateCode()
 
         const customerRepositorie = getCustomRepository(CustomerRepositorie);
 
@@ -60,7 +60,7 @@ class CreateCustomerService {
             code: generatedCode,
         });
 
-        await utilitario.sendEmail(email, generatedCode);
+        await utilitario.sendEmailRegister(email, generatedCode);
 
         await customerRepositorie.save(customer);
     }
