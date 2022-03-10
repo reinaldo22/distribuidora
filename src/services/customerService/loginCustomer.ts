@@ -33,7 +33,7 @@ class LoginCustomerService {
 
 
         const token = jwt.sign({ id: customer.id }, "khk3jjkk2vk4j2vkv", { expiresIn: '1d' });
-
+        customer.password = "";
         return ({
             customer,
             message: "Ok",
