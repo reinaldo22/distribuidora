@@ -73,6 +73,7 @@ class CreateOrderService {
             customer: customerExists,
             products: serializedProducts,
         });
+        
         console.log("Cria meu pedido>>>>", order)
         //Atualiza a quantidade de produto do estoque
         const { order_products } = order;
@@ -82,6 +83,7 @@ class CreateOrderService {
             quantity:
                 productExists.filter(p => p.id === product.product_id)[0].quantity - product.quantity,
         }));
+
         console.log("Atualiza estoque>>>>", updatedProductQuantity)
         await productRepositorie.save(updatedProductQuantity);
 
