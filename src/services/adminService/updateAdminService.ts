@@ -2,7 +2,6 @@ import AppError from "@shared/error/AppError";
 import { AdminRepositorie } from "src/repositories/adminRepositorie";
 import { getCustomRepository, Not } from "typeorm";
 import bcrypt from 'bcryptjs';
-import Util from "src/util/Util";
 
 interface IAdmin {
     id?: string;

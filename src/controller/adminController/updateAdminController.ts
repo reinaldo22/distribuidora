@@ -4,7 +4,7 @@ import UpdateAdminService from "src/services/adminService/updateAdminService";
 class UpdateAdminController {
     public async updateAdminController(req: Request, res: Response) {
         const { name, email, password } = req.body;
-        const { id } = req.params
+        let id = req.userId;
 
         const updateadminService = new UpdateAdminService();
 

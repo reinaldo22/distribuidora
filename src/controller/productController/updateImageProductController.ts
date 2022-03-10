@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import UpdateImageProductService from "src/services/product_service/updateImageProductService";
+import UpdateImageProductService from "src/services/productService/updateImageProductService";
 
 
 class UpdateImageProductController {

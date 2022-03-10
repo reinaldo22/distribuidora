@@ -1,5 +1,5 @@
 import AppError from "../../shared/error/AppError";
-import { getCustomRepository, getRepository } from "typeorm";
+import { getCustomRepository } from "typeorm";
 import { ProductRepositorie } from "../../repositories/productRepositorie";
 import { Category } from "src/model/categories";
 import { CategoryRepositorie } from "src/repositories/categoryRepositorie";

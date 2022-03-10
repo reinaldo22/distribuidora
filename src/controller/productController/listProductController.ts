@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import ListProductService from "src/services/product_service/listProductService";
+import ListProductService from "src/services/productService/listProductService";
 
 class ListProductController {
 

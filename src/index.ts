@@ -1,4 +1,5 @@
 import 'reflect-metadata';
+import 'dotenv';
 import express, { NextFunction, Request, Response } from 'express';
 import 'express-async-errors';
 import AppError from './shared/error/AppError';
@@ -11,7 +12,7 @@ import productRouter from '../src/routes/productRouter';
 import categoryRouter from '../src/routes/categoryRouter';
 import adminRouter from '../src/routes/adminRouter';
 import customerRouters from '../src/routes/customerRouter';
-
+import orderRouter from '../src/routes/orderRouter';
 
 const app = express();
 app.use(express.urlencoded({ extended: true }));
@@ -24,6 +25,7 @@ app.use(productRouter);
 app.use(categoryRouter);
 app.use(adminRouter);
 app.use(customerRouters);
+app.use(orderRouter);
 
 app.use(
     (error: Error, request: Request, response: Response, next: NextFunction) => {

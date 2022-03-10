@@ -1,5 +1,4 @@
 import { Request, Response } from 'express';
-import ValidationRegisterService from 'src/services/customerService/customerValidationRegister';
 import UpdateCustomerService from 'src/services/customerService/updateCustomerService';
 
 class UpdateCustomerController {

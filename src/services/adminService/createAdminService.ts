@@ -17,7 +17,7 @@ class CreateAdminService {
     public async createAdminService({ name, email, password, code }: IAdmin) {
 
         const utilitario = new Util();
-        let generatedCode = await utilitario.sendCode()
+        let generatedCode = await utilitario.generateCode()
 
         const adminRepositorie = getCustomRepository(AdminRepositorie);
 
@@ -42,7 +42,7 @@ class CreateAdminService {
             code: generatedCode,
         });
 
-        await utilitario.sendEmail(email, generatedCode);
+        await utilitario.sendEmailRegister(email, generatedCode);
 
         await adminRepositorie.save(admin);
     }

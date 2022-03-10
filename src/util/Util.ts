@@ -3,7 +3,7 @@ import nodemailer from 'nodemailer';
 
 
 class Util {
-    public async sendCode() {
+    public async generateCode() {
         const CODE_LENGTH = 4;
         let generatedCode = "";
         for (let i = 0; i < CODE_LENGTH; i++) {
@@ -11,14 +11,25 @@ class Util {
         }
         return generatedCode;
     }
-    public async sendEmail(email: string, generatedCode: string) {
+    public async sendEmailRegister(email: string, generatedCode: string) {
         const transport = nodemailer.createTransport(mail);
 
         await transport.sendMail({
             from: `Distribuidora <ednaciosvargas@gmail.com>`,
             to: email,
-            subject: "Código de cadastro",
+            subject: "Código de ativação",
             html: `Este é o seu código de verificação ${generatedCode}`
+        });
+        return transport;
+    }
+    public async sendEmailForgotPass(email: string, generatedCode: string) {
+        const transport = nodemailer.createTransport(mail);
+
+        await transport.sendMail({
+            from: `Distribuidora <ednaciosvargas@gmail.com>`,
+            to: email,
+            subject: "Código de Redefinição de senha",
+            html: `Esta é sua nova senha, para alterá-la basta fazer login e redefinir no painel de editar perfil: ${generatedCode}`
         });
         return transport;
     }
