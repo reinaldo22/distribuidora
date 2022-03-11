@@ -7,6 +7,7 @@ import { rolesCustomer } from '../middlewares/verifyRoles';
 import ProcessOrderController from 'src/controller/ordersController/processOrderController';
 import SeparateOrderController from '../controller/ordersController/separateOrderController';
 import DeliveryOrderController from 'src/controller/ordersController/deliveryOrderController';
+import CancelOrderController from 'src/controller/ordersController/cancelOrderController';
 
 const routes = Router();
 
@@ -15,4 +16,5 @@ routes.get('/order/:id', [verifyToken, rolesAdmin], OrdersController.show);
 routes.put('/order/:id', [verifyToken, rolesAdmin], ProcessOrderController.process);
 routes.put('/separate/:id', [verifyToken, rolesAdmin], SeparateOrderController.separate);
 routes.put('/delivery/:id', [verifyToken, rolesAdmin], DeliveryOrderController.delivery);
+routes.put('/cancel/:id', [verifyToken], CancelOrderController.cancel);
 export default routes;
