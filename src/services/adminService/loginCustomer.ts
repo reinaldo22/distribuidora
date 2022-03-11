@@ -3,6 +3,7 @@ import { CustomerRepositorie } from "src/repositories/customerReposiorie";
 import { getCustomRepository } from "typeorm";
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+import { AdminRepositorie } from "src/repositories/adminRepositorie";
 
 
 interface ILogin {
@@ -11,31 +12,31 @@ interface ILogin {
 }
 
 
-class LoginCustomerService {
+class LoginAdminService {
 
     public async signIn({ email, password }: ILogin) {
 
-        const customerRepositorie = getCustomRepository(CustomerRepositorie);
+        const adminRepositorie = getCustomRepository(AdminRepositorie);
 
-        const customer = await customerRepositorie.findByEmail(email);
-        if (!customer) {
+        const admin = await adminRepositorie.findByEmail(email);
+        if (!admin) {
             throw new AppError("E-mail não existe ou incorreto");
         }
-        if (customer.validated === false) {
+        if (admin.validated === false) {
             throw new AppError("Usuário não validado");
         }
 
-        const isValidatePassword = await bcrypt.compare(password, customer.password);
+        const isValidatePassword = await bcrypt.compare(password, admin.password);
 
         if (!isValidatePassword) {
             throw new AppError("Senha inválida ou e-mail incorreto");
         }
 
 
-        const token = jwt.sign({ id: customer.id }, "khk3jjkk2vk4j2vkv", { expiresIn: '1d' });
-        customer.password = "";
+        const token = jwt.sign({ id: admin.id }, "khk3jjkk2vk4j2vkv", { expiresIn: '1d' });
+        admin.password = "";
         return ({
-            customer,
+            admin,
             message: "Ok",
             token
         });
@@ -44,4 +45,4 @@ class LoginCustomerService {
     }
 }
 
-export default LoginCustomerService;
+export default LoginAdminService;

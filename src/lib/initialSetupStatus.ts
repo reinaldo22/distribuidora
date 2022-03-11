@@ -19,9 +19,10 @@ export default async function executeStatus() {
                 { name: "PROCESSANDO" },
                 { name: "SEPARANDO" },
                 { name: "ENTREGA" },
+                { name: "CANCELADO" },
             ])
             .execute();
-    
+
     } catch (error) {
         console.log(error)
     }

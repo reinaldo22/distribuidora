@@ -2,6 +2,7 @@ import AppError from '@shared/error/AppError';
 import { CustomerRepositorie } from 'src/repositories/customerReposiorie';
 import { OrderRepositorie } from 'src/repositories/orderRepositorie';
 import { ProductRepositorie } from 'src/repositories/productRepositorie';
+import { StatusRepositorie } from 'src/repositories/statusRepositorie';
 import { getCustomRepository } from 'typeorm';
 import Orders from '../../model/order';
 
@@ -45,7 +46,7 @@ class CreateOrderService {
             //Retorna todos produtos que não existem
             throw new AppError(`Could not find product ${checkInexistentProducts[0].id}.`, 404);
         }
-        
+
 
         //Verifica a quantidade se é o suficiente
         const quantityAvailable = products.filter(
@@ -53,11 +54,10 @@ class CreateOrderService {
                 productExists.filter(p => p.id === product.id)[0].quantity <
                 product.quantity,
         );
-        
+
         if (quantityAvailable.length) {
             throw new AppError(
-                `The quantity ${quantityAvailable[0].quantity}
-               is not available for ${quantityAvailable[0].id}.`, 404);
+                `A quantidade ${quantityAvailable[0].quantity} não está disponível para:${quantityAvailable[0].id}.`, 404);
         }
 
         //Retorna um array de produtos com o preco, quantidade e os produtos
@@ -73,8 +73,8 @@ class CreateOrderService {
             customer: customerExists,
             products: serializedProducts,
         });
-        
-        console.log("Cria meu pedido>>>>", order)
+
+       
         //Atualiza a quantidade de produto do estoque
         const { order_products } = order;
 

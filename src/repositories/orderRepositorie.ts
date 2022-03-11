@@ -17,15 +17,14 @@ interface IProduct {
 class OrderRepositorie extends Repository<Orders>{
     public async findbyId(id: string): Promise<Orders | undefined> {
         const order = await this.findOne(id, {
-            relations: ['order_products', 'customer'],
+            relations: ['order_products', 'customer', 'status'],
         })
 
         return order;
     }
 
-
     public async createOrder({ customer, products }: IRequest): Promise<Orders> {
-        const order =  this.create({
+        const order = this.create({
             customer,
             order_products: products
         })
@@ -34,6 +33,7 @@ class OrderRepositorie extends Repository<Orders>{
 
         return order;
     }
+    
 }
 
 export { OrderRepositorie };
