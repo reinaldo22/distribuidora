@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
-import PurchaseDemandService from '../../services/createOrderService/purchaseDemand';
+import PurchaseDemandService from '../../services/createOrderService/findDemand';
 
-class PurchaseDemandController {
+class FindDemandController {
 
     public async all(req: Request, res: Response) {
 
@@ -12,4 +12,4 @@ class PurchaseDemandController {
 
 }
 
-export default new PurchaseDemandController();
+export default new FindDemandController();

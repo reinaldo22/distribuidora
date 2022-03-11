@@ -3,7 +3,7 @@ import { getCustomRepository } from "typeorm";
 
 
 
-class PurchaseDemandService {
+class FindDemandService {
 
     public async allOrders() {
 
@@ -18,4 +18,4 @@ class PurchaseDemandService {
     }
 }
 
-export default PurchaseDemandService;
+export default FindDemandService;
