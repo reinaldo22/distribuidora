@@ -14,7 +14,7 @@ class ForgotAdminPasswordController {
             email
         });
         
-        return res.status(200).json({ message: "We have sent your new password to the registered email!" })
+        return res.status(200).json({ message: "Enviamos sua nova senha para o e-mail cadastrado!" })
     }
 
 }

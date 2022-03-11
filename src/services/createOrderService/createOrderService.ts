@@ -69,13 +69,6 @@ class CreateOrderService {
         }));
         console.log("Array com produtos e precos>>>>", serializedProducts)
         //Cria a minha ordem de pedido
-        const status = await getCustomRepository(StatusRepositorie).findOne({
-            where: { id: 1 }
-        });
-
-        if (!status) {
-            throw new AppError("Status não encontrado", 404);
-        }
         const order = await orderRepositorie.createOrder({
             customer: customerExists,
             products: serializedProducts,

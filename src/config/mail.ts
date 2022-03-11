@@ -12,7 +12,7 @@ interface IMail {
 }
 
 const mail: IMail = {
-    host: process.env.USER,
+    host: process.env.HOST,
     port: process.env.PORT,
     auth: {
         user: process.env.USER,

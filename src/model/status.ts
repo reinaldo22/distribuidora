@@ -7,6 +7,7 @@ class Status {
 
     @Column()
     name: string;
+    
 
     @CreateDateColumn()
     createdAt: Date;

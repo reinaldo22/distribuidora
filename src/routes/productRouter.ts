@@ -9,7 +9,6 @@ import DeleteProductController from 'src/controller/productController/deleteProd
 
 const routes = Router()
 const upload = multer(uploadConfig);
-
 routes.post('/product', upload.single('upload'), CreateProductController.create);
 routes.get('/product', ListProductController.listProductController);
 routes.put('/product/:id', UpdateproductController.updateProductController);
