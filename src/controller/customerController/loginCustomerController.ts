@@ -16,7 +16,7 @@ class LoginCustomerController {
         });
 
 
-        return res.status(200).json({ customer });
+        return res.status(200).json(customer);
 
     }
 }

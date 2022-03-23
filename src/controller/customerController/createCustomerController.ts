@@ -23,7 +23,7 @@ class CreateCustomerController {
             endereco,
             cpf
         })
-        return res.status(201).json({ message: "Customer created succesfuly" });
+        return res.status(201).json({ message: "Cliente criado. Enviamos um código de verificação para seu e-mail!" });
     }
 
 
