@@ -3,4 +3,4 @@ uploads/
 .env
 docker-compose.yml
 build
-pgdata
+docker-compose.yml/

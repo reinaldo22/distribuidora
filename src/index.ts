@@ -43,4 +43,4 @@ app.use(
     },
 );
 
-app.listen(3333, () => console.log("Server started!"));
+app.listen(process.env.PORTA, () => console.log("Server started!"));

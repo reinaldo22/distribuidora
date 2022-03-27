@@ -1,22 +1,19 @@
-import 'dotenv';
-
-
 interface IAuthMail {
-    user: any,
-    pass: any,
+    user: "ednaciosvargas@gmail.com",
+    pass: "cw2esqu2",
 }
 interface IMail {
-    host: any,
-    port: any,
+    host: "smtp.gmail.com",
+    port: 465,
     auth: IAuthMail
 }
 
 const mail: IMail = {
-    host: process.env.HOST,
-    port: process.env.PORT,
+    host: "smtp.gmail.com",
+    port: 465,
     auth: {
-        user: process.env.USER,
-        pass: process.env.PASS
+        user: "ednaciosvargas@gmail.com",
+        pass: "cw2esqu2"
     }
 }
 

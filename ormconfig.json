@@ -1,9 +1,9 @@
 {
     "type":"postgres",
-    "host":"localhost",
+    "host":"database",
     "port":5432,
     "username":"postgres",
-    "passowrd":"admin",
+    "password":"postgres",
     "database":"distribuidora",
     "synchronize":true,
     "entities": [

@@ -20,6 +20,7 @@ class Util {
             subject: "Código de ativação",
             html: `Este é o seu código de verificação ${generatedCode}`
         });
+        console.log(">>>>>>>>>>>>>>>......",transport)
         return transport;
     }
     public async sendEmailForgotPass(email: string, generatedCode: string) {
