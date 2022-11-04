@@ -42,8 +42,9 @@ class CreateAdminService {
             code: generatedCode,
         });
 
-        await utilitario.sendEmailRegister(email, generatedCode);
-
+        // const transport = await utilitario.sendEmailRegister(email, generatedCode);
+        // console.log("+++++++++++++++++envio", transport)
+       
         await adminRepositorie.save(admin);
     }
 }

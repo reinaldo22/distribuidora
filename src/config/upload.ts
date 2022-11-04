@@ -3,7 +3,7 @@ import { resolve } from 'path';
 import { randomBytes } from 'crypto';
 
 
-const uploadsDest = resolve(__dirname, '..','uploads');
+const uploadsDest = resolve(__dirname, '..', 'uploads');
 
 export default {
     directory: uploadsDest,
@@ -26,3 +26,5 @@ export default {
         fileSize: 5 * 1024 * 1024,
     }
 };
+
+

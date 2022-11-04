@@ -8,12 +8,16 @@ class CreateAdminController {
 
         const createAdminService = new CreateAdminService();
 
-        const admin = await createAdminService.createAdminService({
+        const data = await createAdminService.createAdminService({
             name,
             email,
             password
         })
-        return res.status(201).json({ message: "Admin created succesfuly" });
+        return res.status(201).json({
+            success: true,
+            message: "Usuário criado com sucesso",
+            data:data
+        });
     }
 }
 export default new CreateAdminController();

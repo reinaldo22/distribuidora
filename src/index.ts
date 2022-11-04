@@ -1,5 +1,5 @@
 import 'reflect-metadata';
-import 'dotenv';
+require('dotenv').config();
 import express, { NextFunction, Request, Response } from 'express';
 import 'express-async-errors';
 import AppError from './shared/error/AppError';
@@ -31,7 +31,7 @@ app.use(
     (error: Error, request: Request, response: Response, next: NextFunction) => {
         if (error instanceof AppError) {
             return response.status(error.statusCode).json({
-                status: 'error',
+                status: false,
                 message: error.message,
             });
         }
@@ -43,4 +43,4 @@ app.use(
     },
 );
 
-app.listen(3333, () => console.log("Server started!"));
+app.listen(8081, () => console.log("Server started!"));

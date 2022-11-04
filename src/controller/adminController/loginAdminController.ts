@@ -16,7 +16,7 @@ class LoginAdminController {
         });
 
 
-        return res.status(200).json({ admin });
+        return res.status(201).json(admin);
 
     }
 }

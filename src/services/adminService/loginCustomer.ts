@@ -36,9 +36,10 @@ class LoginAdminService {
         const token = jwt.sign({ id: admin.id }, "khk3jjkk2vk4j2vkv", { expiresIn: '1d' });
         admin.password = "";
         return ({
-            admin,
+            status: true,
             message: "Ok",
-            token
+            token,
+            data: admin
         });
 
 

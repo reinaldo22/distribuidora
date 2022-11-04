@@ -60,7 +60,7 @@ class CreateCustomerService {
             code: generatedCode,
         });
 
-        await utilitario.sendEmailRegister(email, generatedCode);
+        // await utilitario.sendEmailRegister(email, generatedCode);
 
         await customerRepositorie.save(customer);
     }

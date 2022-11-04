@@ -1,20 +1,20 @@
 {
-    "type":"postgres",
-    "host":"localhost",
-    "port":5432,
-    "username":"postgres",
-    "passowrd":"admin",
-    "database":"distribuidora",
-    "synchronize":true,
-    "entities": [
-        "src/model/*.ts"
-     ],
-     "migrations": [
-        "src/database/migrations/*.ts"
-     ],
-     "cli":{
-        "entitiesDir":"src/model",
-        "migrationsDir":"src/database/migrations",
-        "subscribersDir":"src/subscibers"
-     }
+   "type": "postgres",
+   "host": "localhost",
+   "port": 5432,
+   "username": "postgres",
+   "password": "admin",
+   "database": "distribuidora",
+   "synchronize": true,
+   "entities": [
+      "src/model/*.ts"
+   ],
+   "migrations": [
+      "src/database/migrations/*.ts"
+   ],
+   "cli": {
+      "entitiesDir": "src/model",
+      "migrationsDir": "src/database/migrations",
+      "subscribersDir": "src/subscibers"
+   }
 }
