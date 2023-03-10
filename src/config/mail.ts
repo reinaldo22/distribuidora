@@ -1,7 +1,7 @@
 
 // interface IAuthMail {
-//     user: "ednaciosvargas@gmail.com",
-//     pass: "cw2esqu2",
+//     user: "email",
+//     pass: "senha",
 // }
 // interface IMail {
 //     host: "smtp.gmail.com",
@@ -13,8 +13,8 @@
 //     host: "smtp.gmail.com",
 //     port: 465,
 //     auth: {
-//         user: "ednaciosvargas@gmail.com",
-//         pass: "cw2esqu2",
+//         user: "email",
+//         pass: "senha",
 //     }
 // }
 
